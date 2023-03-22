@@ -1,0 +1,29 @@
+﻿@model IEnumerable<innov_web.Models.DTO.VerbDto>
+<div class="container">
+    <a asp-controller="Verb" asp-action="VerbCreate" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New End Point</a>
+
+
+    <h2>End Points</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Type</td>
+                    <td>@item.Link</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    
+</script>

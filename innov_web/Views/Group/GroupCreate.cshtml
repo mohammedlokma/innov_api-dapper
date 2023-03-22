@@ -1,0 +1,79 @@
+﻿@model innov_web.Models.DTO.GroupDto
+
+<form asp-action="GroupCreate">
+    <br />
+    <div class="container border p-3">
+        <h1 class="text-primary">Create Group</h1>
+        <hr />
+
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-2">
+                <label asp-for="Name" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="DbType" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <select asp-for="DbType" class="form-select">
+                    <option disabled selected>--Select Type--</option>
+                    <option>SQL</option>
+                    
+                </select>
+                <span asp-validation-for="DbType" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Connection.Server" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Connection.Server" class="form-control" />
+                <span asp-validation-for="Connection.Server" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Connection.DbName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Connection.DbName" class="form-control" />
+                <span asp-validation-for="Connection.DbName" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="Connection.UserName" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Connection.UserName" class="form-control" />
+            </div>
+            <div class="col-2">
+                <label asp-for="Connection.Password" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Connection.Password" class="form-control" />
+            </div>
+            <div class="col-2">
+                <label asp-for="Connection.IntegratedSecurity" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input type="checkbox" asp-for="Connection.IntegratedSecurity" checked="true" />
+            </div>
+            <div class="col-2">
+                <label asp-for="Connection.TrustedConnection" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input type="checkbox" asp-for="Connection.TrustedConnection" checked="true" />
+            </div>
+            <div class="col-5">
+                <input type="submit" value="Create" class="btn btn-success form-control" />
+            </div>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

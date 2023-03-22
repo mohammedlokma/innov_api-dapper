@@ -1,0 +1,43 @@
+﻿
+@model IEnumerable<innov_web.Models.DTO.GroupDto>
+<div class="container">
+    <a asp-controller="Group" asp-action="GroupCreate" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i> Create New Group</a>
+
+
+    <h2>Groups</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>End Points</th>
+                <th>Edit</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td><a class="btn btn-primary" asp-controller="Group" asp-action="GroupVerbs" asp-route-groupId="@item.Id">End Points</a></td>
+                    <td> <a class="btn btn-success" asp-controller="Group" asp-action="GroupUpdate" asp-route-groupId="@item.Id">Edit</a></td>
+                  <td>
+                       
+                        @if (!item.Deleted)
+                        {
+                            <a asp-controller="Group" asp-action="DeleteGroup" asp-route-groupId="@item.Id" class="btn btn-danger"><i class="bi bi-x-lg"></i></a>
+                        }
+                        else{
+                            <a asp-controller="Group" asp-action="UnDeleteGroup" asp-route-groupId="@item.Id" class="btn btn-success"><i class="bi bi-check-lg"></i></a>
+                        }
+
+                      </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+   
+</script>
